@@ -1,7 +1,5 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Resource, Api
-from flask import jsonify
-import json
 import platform
 
 app = Flask(__name__)
@@ -12,7 +10,7 @@ class Status(Resource):
         data = {}
         data['hello'] = 'world'
         data['python_version'] = platform.python_version()
-        return json.dumps(data)
+        return (data)
 
 api.add_resource(Status, '/status')
 
